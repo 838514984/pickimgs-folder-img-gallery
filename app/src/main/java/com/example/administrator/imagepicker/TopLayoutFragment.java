@@ -55,7 +55,9 @@ public class TopLayoutFragment extends Fragment {
         tv_right.setOnClickListener(listener);
     }
 
-
+    public View getContentView(){
+        return contentView;
+    }
 
 
 }

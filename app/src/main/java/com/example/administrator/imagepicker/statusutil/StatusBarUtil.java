@@ -228,8 +228,9 @@ public class StatusBarUtil {
             if (lp != null && lp.height > 0) {
                 lp.height += getStatusBarHeight(context);//增高
             }
-            view.setPadding(view.getPaddingLeft(), view.getPaddingTop() + getStatusBarHeight(context),
-                    view.getPaddingRight(), view.getPaddingBottom());
+//            view.setPadding(view.getPaddingLeft(), view.getPaddingTop() + getStatusBarHeight(context),
+//                    view.getPaddingRight(), view.getPaddingBottom());
+            view.setPadding(0,getStatusBarHeight(context),0,0);
         }
     }
 

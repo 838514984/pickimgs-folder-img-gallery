@@ -56,9 +56,9 @@ public class ImgListActivity extends FragmentActivity implements ImgShowGridView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_img_list);
         StatusBarUtil.immersive(this);
-        //StatusBarUtil.setPaddingSmart(this, getSupportFragmentManager().findFragmentById(R.id.fragment).getView());
         MyApplication.INSTANCE.addActivity(this);
         topLayoutFragment = (TopLayoutFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+        StatusBarUtil.setPaddingSmart(this, topLayoutFragment.getContentView());
         //最下面的文字提示
         tvSelectPicNum = (TextView) findViewById(R.id.tv_check_num);
         gridView = (GridView) findViewById(R.id.gv);
