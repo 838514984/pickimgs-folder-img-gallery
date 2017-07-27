@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.imagepicker.imagerelate.ImgListActivity">
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.administrator.imagepicker.TopLayoutFragment"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+    <GridView
+        android:id="@+id/gv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:numColumns="4"
+        android:verticalSpacing="2dp"
+        android:horizontalSpacing="2dp"
+        android:scrollbars="none"
+        android:listSelector="@null"
+        />
+    <TextView
+        android:id="@+id/tv_check_num"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:text="完成"
+        />
+</LinearLayout>

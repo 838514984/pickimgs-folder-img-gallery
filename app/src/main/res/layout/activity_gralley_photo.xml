@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.imagepicker.gallery.GralleyPhotoActivity">
+
+    <com.example.administrator.imagepicker.gallery.HackyViewPager
+        android:id="@+id/vp_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="48dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_check_or_unckeck"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:drawableRight="@drawable/photo_indicator"
+            android:gravity="right|center_vertical"
+            android:text="选中"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_check_complete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="完成（0）"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</RelativeLayout>
