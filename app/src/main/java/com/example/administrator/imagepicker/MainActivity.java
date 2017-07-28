@@ -16,6 +16,7 @@ import com.example.administrator.imagepicker.bean.PhotoEvent;
 import com.example.administrator.imagepicker.floderRelate.FolderListActivity;
 import com.example.administrator.imagepicker.imagerelate.ImgShowGridViewAdapter;
 import com.example.administrator.imagepicker.photoutil.FileTraversal;
+import com.example.administrator.imagepicker.statusutil.StatusBarUtil;
 import com.example.administrator.imagepicker.usecamera.TakePhotoActivity;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -31,12 +32,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button button;
     private GridView gridView;
     private ImgShowGridViewAdapter adapter=new ImgShowGridViewAdapter(new FileTraversal(),this,false);
-
+    TopLayoutFragment topLayoutFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MyApplication.INSTANCE.addActivity(this);
         setContentView(R.layout.activity_main);
+        StatusBarUtil.immersive(this);
+        topLayoutFragment= (TopLayoutFragment)getSupportFragmentManager().findFragmentById(R.id.fragment);
+        StatusBarUtil.setPaddingSmart(this,topLayoutFragment.getContentView());
         button= (Button) findViewById(R.id.btn);
         gridView= (GridView) findViewById(R.id.gv);
         gridView.setAdapter(adapter);

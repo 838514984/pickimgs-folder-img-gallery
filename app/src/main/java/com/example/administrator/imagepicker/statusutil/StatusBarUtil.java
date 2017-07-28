@@ -57,9 +57,11 @@ public class StatusBarUtil {
         if (Build.VERSION.SDK_INT >= 21) {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            //设置透明
             window.setStatusBarColor(mixtureColor(color, alpha));
 
             int systemUiVisibility = window.getDecorView().getSystemUiVisibility();
+            //设置Activity和statusbar融合
             systemUiVisibility |= View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
             systemUiVisibility |= View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
             window.getDecorView().setSystemUiVisibility(systemUiVisibility);
@@ -228,9 +230,8 @@ public class StatusBarUtil {
             if (lp != null && lp.height > 0) {
                 lp.height += getStatusBarHeight(context);//增高
             }
-//            view.setPadding(view.getPaddingLeft(), view.getPaddingTop() + getStatusBarHeight(context),
-//                    view.getPaddingRight(), view.getPaddingBottom());
-            view.setPadding(0,getStatusBarHeight(context),0,0);
+            view.setPadding(view.getPaddingLeft(), view.getPaddingTop() + getStatusBarHeight(context),
+                    view.getPaddingRight(), view.getPaddingBottom());
         }
     }
 
@@ -275,6 +276,7 @@ public class StatusBarUtil {
 
     public static int mixtureColor(int color, @FloatRange(from = 0.0, to = 1.0) float alpha) {
         int a = (color & 0xff000000) == 0 ? 0xff : color >>> 24;
+        int colorr=(color & 0x00ffffff) | (((int) (a * alpha)) << 24);
         return (color & 0x00ffffff) | (((int) (a * alpha)) << 24);
     }
 
